@@ -8,5 +8,6 @@ void binary_semaphore_example();
 int test_smart_ptr();
 int test_weak_ptr();
 int test_shared_ptr();
+int test_unique_ptr();
 
 #endif

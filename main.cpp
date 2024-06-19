@@ -7,7 +7,8 @@ int main(int argc, char* argv[]) {
     //ping_pong_threads();
     //test_smart_ptr();
     //test_weak_ptr();
-    test_shared_ptr();
+    //test_shared_ptr();
+    test_unique_ptr();
     //binary_semaphore_example();
 
     return 0;

@@ -12,4 +12,5 @@ add_executable(examples
         includes/myHeader.h
         lock/binarySemaphore.cpp
         smartPointers/weakPointer.cpp
-        smartPointers/sharedPointer.cpp)
+        smartPointers/sharedPointer.cpp
+        smartPointers/uniquePointer.cpp)
