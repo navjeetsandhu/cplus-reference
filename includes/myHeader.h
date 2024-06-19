@@ -6,5 +6,6 @@ void run_sort_vectors_threads();
 void ping_pong_threads();
 void binary_semaphore_example();
 int test_smart_ptr();
+int test_weak_ptr();
 
 #endif
