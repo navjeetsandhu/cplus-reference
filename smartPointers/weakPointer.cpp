@@ -6,30 +6,19 @@ using namespace std;
 class Rectangle {
     int length;
     int breadth;
-    int i;
+
 public:
-    Rectangle(int l, int b, int c)
+    Rectangle(int l, int b)
     {
         cout << "Constructor called" << endl;
         length = l;
         breadth = b;
-        i=c;
-        this->print("Constructor called  ");
     }
     int area() const
     {
         return length * breadth;
     }
 
-    void print(const string& a) const
-    {
-        cout << a << "My i " << i << endl;
-    }
-
-    ~ Rectangle() {
-        this->print("Destructor called  ");
-        cout << "Destructor called" << endl;
-    }
 };
 
 // You cannot use weak pointers to initialise new objects in memory,
@@ -37,9 +26,10 @@ public:
 // or point to ordinary stack objects.
 int test_weak_ptr()
 {
-    shared_ptr<Rectangle> P1(new Rectangle(10, 5, 1));
-    P1->print("In function ");
-    cout << "Area  "<< P1->area() << endl; // A=
+
+    shared_ptr<Rectangle> P1(new Rectangle(10, 5));
+
+    cout << "Area  " << P1->area() << endl; // A=
     {
         shared_ptr<Rectangle> P2;
         P2 = P1;
@@ -69,7 +59,4 @@ int test_weak_ptr()
     cout << "P4 use_count  after P4 reset " << P4.use_count() << endl;
 
     return 0;
-
-
-
 }
