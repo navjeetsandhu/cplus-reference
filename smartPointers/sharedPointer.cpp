@@ -17,6 +17,9 @@ int test_shared_ptr() {
             std::cout << "p2 is going out of scope...\n";
         }  // The destructor is not called here, as p1 is still pointing to the object
         std::cout << "p1 use_count  " << p1.use_count() << std::endl;
+        std::cout << "p1 is going to reset...\n";
+        p1.reset();
+        std::cout << "p1 use_count  " << p1.use_count() << std::endl;
         std::cout << "p1 is going out of scope...\n";
     }  // Here the destructor is called, as there's no shared_ptr pointing to the object anymore
 
