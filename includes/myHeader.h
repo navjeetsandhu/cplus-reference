@@ -7,5 +7,6 @@ void ping_pong_threads();
 void binary_semaphore_example();
 int test_smart_ptr();
 int test_weak_ptr();
+int test_shared_ptr();
 
 #endif
