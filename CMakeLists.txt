@@ -13,4 +13,5 @@ add_executable(examples
         lock/binarySemaphore.cpp
         smartPointers/weakPointer.cpp
         smartPointers/sharedPointer.cpp
-        smartPointers/uniquePointer.cpp)
+        smartPointers/uniquePointer.cpp
+        threads/twoThread.cpp)
