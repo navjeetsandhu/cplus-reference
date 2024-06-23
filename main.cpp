@@ -3,6 +3,6 @@
 
 
 int main(int argc, char* argv[]) {
-    two_threads_with_condition();
+    testStringClass();
     return 0;
 }

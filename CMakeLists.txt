@@ -14,4 +14,5 @@ add_executable(examples
         smartPointers/weakPointer.cpp
         smartPointers/sharedPointer.cpp
         smartPointers/uniquePointer.cpp
-        threads/twoThread.cpp)
+        threads/twoThread.cpp
+        string/stringClass.cpp)

@@ -10,5 +10,6 @@ int test_weak_ptr();
 int test_shared_ptr();
 int test_unique_ptr();
 void two_threads_with_condition();
+void testStringClass();
 
 #endif
