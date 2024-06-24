@@ -24,6 +24,7 @@ public:
 class ExplicitFeet : public Feet {
 
 public:
+    // The explicit keyword in C++ is used to prevent unwanted implicit conversions from happening.
     explicit ExplicitFeet(int feet) : Feet(feet) {}
 
 };
