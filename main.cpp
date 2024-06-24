@@ -3,6 +3,6 @@
 
 
 int main(int argc, char* argv[]) {
-    testStringClass();
+    implicitConversion();
     return 0;
 }
