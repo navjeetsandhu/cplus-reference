@@ -1,23 +1,42 @@
 #include<iostream>
 
-class Feet {
-public:
-    // Implicit conversion from int to Feet
-    //explicit Feet(int feet) : feet_(feet) { }
-    explicit Feet(int feet) : feet_(feet) { }
 
-    int value() const { return feet_; }
-
+class Feet
+{
 private:
     int feet_;
+
+public:
+    explicit Feet(int feet) : feet_(feet) { }
+    int value() const { return feet_; }
 };
 
-void printFeet(const Feet& feet) {
-    std::cout << "Feet: " << feet.value() << "\n";
+
+
+class ImplicitFeet : public Feet{
+
+public:
+        ImplicitFeet(int feet) : Feet(feet) {}
+};
+
+
+
+class ExplicitFeet : public Feet {
+
+public:
+    explicit ExplicitFeet(int feet) : Feet(feet) {}
+
+};
+
+
+void printFeet(const Feet& feet, std::string&& msg) {
+    std::cout << msg << "Class Feet: " << feet.value() << "\n";
 }
 
 
-void implicitConversion() {
-    Feet f = 10; // Implicit conversion from int to Feet
-    printFeet(f); // Output: Feet: 10
+void testFeetClass() {
+    ImplicitFeet f = 10; // Implicit conversion from int to Feet
+    printFeet(f, "Implicit conversion"); // Output: Feet: 10
+    ExplicitFeet ff(11); // Explicit conversion from int to Feet
+    printFeet(ff, "Explicit conversion"); // Output: Feet: 10
 }
