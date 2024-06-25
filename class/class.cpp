@@ -38,6 +38,14 @@ void printFeet(const Feet& feet, std::string&& msg) {
 void testFeetClass() {
     ImplicitFeet f = 10; // Implicit conversion from int to Feet
     printFeet(f, "Implicit conversion"); // Output: Feet: 10
+
     ExplicitFeet ff(11); // Explicit conversion from int to Feet
     printFeet(ff, "Explicit conversion"); // Output: Feet: 10
+
+    auto *fff = new ExplicitFeet (12);
+    printFeet(*fff, "new Object"); // Output: Feet: 10
+    delete fff;
+
+    auto explicitFeet = ff;
+    printFeet(explicitFeet, "copy class"); // Output: Feet: 10
 }

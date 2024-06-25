@@ -3,66 +3,63 @@
 #include <iostream>
 #include <chrono>
 
+std::mutex mu;    // mutex
+std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
+int shared_value = 0;   // Shared resource
 
-void two_threads_with_condition() {
-    std::mutex mu;
-    std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
-    const char *sharedMes = nullptr;   // Shared resource
 
-    auto pingPongFn =                  // thread body (lambda). Print someone else's message
-            [&](const char *mes) {
-                while (true) {
-                    std::unique_lock<std::mutex> lock(mu);// locks the mutex
-                    // std::unique_lock<mutex> lock(mu, std::defer_lock); defer the lock the mutex
-                    do {
-                        cond.wait(lock,
-                                  [&]() {     // wait for condition to be true (unlocks while waiting which allows other threads to modify)
-                                      return sharedMes != mes; // statement for when to continue
-                                  });
-                    } while (sharedMes == mes);  // prevents spurious wakeup
-                    std::cout << sharedMes << std::endl;
-                    sharedMes = mes;
-                    lock.unlock();               // no need to have lock on notify
-                    cond.notify_all();           // notify all condition has changed
-                    std::this_thread::sleep_for(std::chrono::seconds(3));
-                }
-            };
-    sharedMes = "ping";
-    std::thread t1(pingPongFn, sharedMes);  // start example with 2 concurrent threads
-    std::thread t2(pingPongFn, "pong");
-    t1.join();
-    t2.join();
+
+void thread_one() {
+    std::cout << "starting thread one" << std::endl;
+    std::unique_lock<std::mutex> lock(mu);
+    std::cout << "waiting thread one for condition" << std::endl;
+    cond.wait(lock, []{ return shared_value ==1; });
+    std::cout << "waiting ended for thread one for condition" << std::endl;
+
+    std::cout << "Finishing thread one" << std::endl;
+
 }
 
 
+void thread_two() {
+    std::cout << "starting thread two" << std::endl;
+    std::unique_lock<std::mutex> lock(mu);
+    std::cout << "waiting thread two for condition" << std::endl;
+    cond.wait(lock, []{ return shared_value ==2; });
+    std::cout << "waiting ended for thread two for condition" << std::endl;
 
-void two_threads_with_binary_semaphore() {
-    std::mutex mu;
-    std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
-    const char *sharedMes = nullptr;   // Shared resource
+    std::cout << "Finishing thread two" << std::endl;
+}
 
-    auto pingPongFn =                  // thread body (lambda). Print someone else's message
-            [&](const char *mes) {
-                while (true) {
-                    std::unique_lock<std::mutex> lock(mu);// locks the mutex
-                    // std::unique_lock<mutex> lock(mu, std::defer_lock); defer the lock the mutex
-                    do {
-                        cond.wait(lock,
-                                  [&]() {     // wait for condition to be true (unlocks while waiting which allows other threads to modify)
-                                      return sharedMes != mes; // statement for when to continue
-                                  });
-                    } while (sharedMes == mes);  // prevents spurious wakeup
-                    std::cout << sharedMes << std::endl;
-                    sharedMes = mes;
-                    lock.unlock();               // no need to have lock on notify
-                    cond.notify_all();           // notify all condition has changed
-                    std::this_thread::sleep_for(std::chrono::seconds(3));
-                }
-            };
-    sharedMes = "ping";
-    std::thread t1(pingPongFn, sharedMes);  // start example with 2 concurrent threads
-    std::thread t2(pingPongFn, "pong");
+void two_threads_with_condition() {
+
+    std::thread t1(thread_one);  // start example with 2 concurrent threads
+    std::thread t2(thread_two);
+    std::cout << "Created two threads" << std::endl;
+
+
+    std::this_thread::sleep_for(std::chrono::seconds(4));
+
+    std::cout << "setting condition one" << std::endl;
+    shared_value = 1;
+    cond.notify_all();
+
+    std::this_thread::sleep_for(std::chrono::seconds(4));
+
+
+    std::cout << "setting condition two" << std::endl;
+    shared_value = 2;
+    cond.notify_all();
+
+    std::this_thread::sleep_for(std::chrono::seconds(4));
+
+
+
+    std::cout << "Joining two threads" << std::endl;
+
     t1.join();
     t2.join();
+    std::this_thread::sleep_for(std::chrono::seconds(4));
+    std::cout << "Finishing main thread" << std::endl;
 }
 

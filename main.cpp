@@ -3,6 +3,6 @@
 
 
 int main(int argc, char* argv[]) {
-    testOperatorClass();
+    two_threads_with_condition();
     return 0;
 }
