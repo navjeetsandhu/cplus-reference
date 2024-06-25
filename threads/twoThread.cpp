@@ -3,32 +3,43 @@
 #include <iostream>
 #include <chrono>
 
-std::mutex mu;    // mutex
-std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
-int shared_value = 0;   // Shared resource
 
 
-void thread_one(std::string&& name, int value) {
-    std::cout << "starting thread " << name << std::endl;
-    std::unique_lock<std::mutex> lock(mu);
-
-    
-    std::cout << "waiting thread "  << name << " or condition " << std::endl;
-
-    cond.wait(lock, [value]{ return shared_value == value; });
 
 
-    std::cout << "waiting ended for thread "  << name << " for condition" << std::endl;
 
-    std::cout << "Finishing thread "  << name  << std::endl;
-
-}
 
 
 void two_threads_with_condition() {
 
-    std::thread t1(thread_one, "thread_one", 1);  // start example with 2 concurrent threads
-    std::thread t2(thread_one, "thread_two", 2);
+    std::mutex mu;    // mutex
+    std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
+    int shared_value = 0;   // Shared resource
+
+
+
+    auto thread_lambda_func = [&](std::string&& name, int value) {
+        std::cout << "starting thread " << name << std::endl;
+        std::unique_lock<std::mutex> lock(mu);
+
+
+        std::cout << "waiting thread "  << name << " or condition " << std::endl;
+
+
+        auto cond_wait_lambda_func =  [&]{ return shared_value == value; };
+
+        cond.wait(lock, cond_wait_lambda_func);
+
+
+        std::cout << "waiting ended for thread "  << name << " for condition" << std::endl;
+
+        std::cout << "Finishing thread "  << name  << std::endl;
+
+    };
+
+
+    std::thread t1(thread_lambda_func, "thread_lambda_func", 1);  // start example with 2 concurrent threads
+    std::thread t2(thread_lambda_func, "thread_two", 2);
     std::this_thread::sleep_for(std::chrono::seconds(4));
     std::cout << "Created two threads" << std::endl;
 
