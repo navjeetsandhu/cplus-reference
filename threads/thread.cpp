@@ -10,20 +10,18 @@ void ping_pong_threads() {
     unsigned int n = std::thread::hardware_concurrency();
     std::cout << "hardware concurrency" << ' ' << n << "\n";
 
+
     auto pingPongFn =                  // thread body (lambda). Print someone else's message
             [&](const char *mes) {
-                while (true) {
+                for (int i=0;i<7;i++) {
                     std::unique_lock<std::mutex> lock(mu);// locks the mutex
-                    // std::unique_lock<mutex> lock(mu, std::defer_lock); defer the lock the mutex
+                    auto conditionWaitFn = [&]() {return sharedMes != mes; };
                     do {
-                        cond.wait(lock,
-                                  [&]() {     // wait for condition to be true (unlocks while waiting which allows other threads to modify)
-                                      return sharedMes != mes; // statement for when to continue
-                                  });
+                        cond.wait(lock,conditionWaitFn);
                     } while (sharedMes == mes);  // prevents spurious wakeup
-                    std::cout << sharedMes << std::endl;
+                    std::cout << i << "  " << sharedMes << std::endl;
                     sharedMes = mes;
-                    lock.unlock();               // no need to have lock on notify
+                    lock.unlock();
                     cond.notify_all();           // notify all condition has changed
                 }
             };

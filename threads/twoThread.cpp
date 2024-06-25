@@ -4,12 +4,6 @@
 #include <chrono>
 
 
-
-
-
-
-
-
 void two_threads_with_condition() {
 
     std::mutex mu;    // mutex
