@@ -3,6 +3,6 @@
 
 
 int main(int argc, char* argv[]) {
-    testFeetClass();
+    testOperatorClass();
     return 0;
 }

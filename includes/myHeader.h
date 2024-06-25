@@ -12,5 +12,6 @@ int test_unique_ptr();
 void two_threads_with_condition();
 void testStringClass();
 void testFeetClass();
+void testOperatorClass();
 
 #endif
