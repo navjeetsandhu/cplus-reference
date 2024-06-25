@@ -7,10 +7,6 @@ void ping_pong_threads() {
     std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
     const char *sharedMes = nullptr;   // Shared resource
 
-    unsigned int n = std::thread::hardware_concurrency();
-    std::cout << "hardware concurrency" << ' ' << n << "\n";
-
-
     auto pingPongFn =                  // thread body (lambda). Print someone else's message
             [&](const char *mes) {
                 for (int i=0;i<7;i++) {

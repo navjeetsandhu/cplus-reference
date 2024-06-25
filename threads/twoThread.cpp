@@ -10,7 +10,8 @@ void two_threads_with_condition() {
     std::condition_variable cond;      // Shared condition variable, wait, wait_for, wait_until, notify_one, notify_all
     int shared_value = 0;   // Shared resource
 
-
+    unsigned int n = std::thread::hardware_concurrency();
+    std::cout << "hardware concurrency" << ' ' << n << "\n";
 
     auto thread_lambda_func = [&](std::string&& name, int value) {
         std::cout << "starting thread " << name << std::endl;
