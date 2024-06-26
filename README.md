@@ -1,2 +1,4 @@
 # cplus-reference
-cplus reference code
+
+cd cmake-build-debug
+% ./examples param1 param2    
