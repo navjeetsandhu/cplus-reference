@@ -16,4 +16,5 @@ add_executable(examples
         smartPointers/uniquePointer.cpp
         threads/twoThread.cpp
         string/stringClass.cpp
-        class/OperatorClass.cpp)
+        class/OperatorClass.cpp
+        threads/threadSemaphore.cpp)
