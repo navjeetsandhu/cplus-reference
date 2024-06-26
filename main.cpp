@@ -3,6 +3,6 @@
 
 
 int main(int argc, char* argv[]) {
-    ping_pong_threads();
+    run_worker_thread_with_semaphore();
     return 0;
 }

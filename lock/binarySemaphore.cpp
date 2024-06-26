@@ -2,6 +2,7 @@
 #include <iostream>
 #include <semaphore>
 #include <thread>
+#include <atomic>
 
 // global binary semaphore instances
 // object counts are set to zero

@@ -15,5 +15,6 @@ int test_unique_ptr();
 void testStringClass();
 void testFeetClass();
 void testOperatorClass();
+void run_worker_thread_with_semaphore();
 
 #endif
