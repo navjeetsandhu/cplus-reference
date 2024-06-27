@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    simpleArrayTest();
+    testOperatorOverload();
     return 0;
 }
