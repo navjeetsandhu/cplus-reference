@@ -19,4 +19,5 @@ add_executable(examples
         class/OperatorClass.cpp
         threads/threadSemaphore.cpp
         class/StaticClass.cpp
-        lock/InterruptHandler.cpp)
+        lock/InterruptHandler.cpp
+        array/simpleArray.cpp)

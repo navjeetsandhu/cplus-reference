@@ -18,5 +18,6 @@ void testOperatorClass();
 void run_worker_thread_with_semaphore();
 void staticVariableClass();
 void interruptSemaphoreExample();
+void simpleArrayTest();
 
 #endif

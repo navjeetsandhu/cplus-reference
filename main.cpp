@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    interruptSemaphoreExample();
+    simpleArrayTest();
     return 0;
 }
