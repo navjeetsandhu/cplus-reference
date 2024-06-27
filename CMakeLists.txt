@@ -18,4 +18,5 @@ add_executable(examples
         string/stringClass.cpp
         class/OperatorClass.cpp
         threads/threadSemaphore.cpp
-        class/StaticClass.cpp)
+        class/StaticClass.cpp
+        lock/InterruptHandler.cpp)
