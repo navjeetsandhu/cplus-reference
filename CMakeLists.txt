@@ -17,4 +17,5 @@ add_executable(examples
         threads/twoThread.cpp
         string/stringClass.cpp
         class/OperatorClass.cpp
-        threads/threadSemaphore.cpp)
+        threads/threadSemaphore.cpp
+        class/StaticClass.cpp)

@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    run_worker_thread_with_semaphore();
+    staticVariableClass();
     return 0;
 }
