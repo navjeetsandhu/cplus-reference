@@ -19,7 +19,7 @@ void run_worker_thread_with_semaphore();
 void staticVariableClass();
 void interruptSemaphoreExample();
 void simpleArrayTest();
-void testDerivedClass();
+void testFunctionOverLoadAndOverRide();
 void testOperatorOverload();
 
 #endif
