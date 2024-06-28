@@ -21,5 +21,6 @@ void interruptSemaphoreExample();
 void simpleArrayTest();
 void testFunctionOverLoadAndOverRide();
 void testOperatorOverload();
+void test_smart_ptr_function();
 
 #endif

@@ -22,4 +22,5 @@ add_executable(examples
         lock/InterruptHandler.cpp
         array/simpleArray.cpp
         class/Operator.cpp
-        class/functionOverrideAndOverload.cpp)
+        class/functionOverrideAndOverload.cpp
+        smartPointers/functionSmartPtr.cpp)

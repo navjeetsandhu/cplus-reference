@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    testOperatorClass();
+    test_smart_ptr_function();
     return 0;
 }
