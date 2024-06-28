@@ -2,35 +2,43 @@
 
 class Feet
 {
-private:
-    int feet_;
-
 public:
-    explicit Feet(int feet) : feet_(feet) { }
-    int operator+(int x) {
-        feet_ += x;
-        return feet_;
+    int feet_;
+    int height_;
+
+    explicit Feet(int feet = 0, int height = 0) : feet_(feet), height_(height){ }
+    Feet operator+(const Feet& feet) const {
+        Feet f;
+
+        f.feet_ = feet_ + feet.feet_;
+        f.height_ = height_ + feet.height_;
+
+        return f;
     }
-    int operator-(int x) {
-        feet_ -= x;
-        return feet_;
+    Feet operator-(const Feet& feet) const {
+        Feet f;
+
+        f.feet_ = feet_ - feet.feet_;
+        f.height_ = height_ - feet.height_;
+
+        return f;
     }
 
-    int operator++() {
+    Feet operator++() {
         feet_ ++;
-        return feet_;
+        height_ ++;
+        return *this;
     }
 
-    int operator--() {
-        feet_ --;
-        return feet_;
+    Feet operator--() {
+        feet_ ++;
+        height_ ++;
+        return *this;
     }
-
-    int cubed() const { return feet_*feet_*feet_; }
 
 
     friend std::ostream& operator<<(std::ostream &os, const Feet &my_obj) {
-        os << "Feet = " << my_obj.feet_;
+        os << "Feet = " << my_obj.feet_ << "  Height = " << my_obj.height_ << std::endl;
         return os;
     }
 
@@ -39,10 +47,10 @@ public:
 
 void testOperatorClass() {
 
-    Feet ff(11);
+    Feet ff(11, 12);
+    Feet fff(111, 121);
     std::cout << ff << std::endl;
 
-    std::cout << ff.cubed() << std::endl;
     std::cout << ff << std::endl;
 
     ++ff;
@@ -53,12 +61,10 @@ void testOperatorClass() {
 
     std::cout << ff << std::endl;
 
-    ff + 3;
+    Feet f = fff + ff;
 
-    std::cout << ff << std::endl;
-    ff - 3;
-    std::cout << ff << std::endl;
+    std::cout << f << std::endl;
 
-
-
+    f = fff - ff;
+    std::cout << f << std::endl;
 }
