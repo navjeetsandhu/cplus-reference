@@ -97,4 +97,15 @@ void testStaticCast() {
     void* v_ptr = &i;
     int* i_ptr = static_cast<int*>(v_ptr);  // Converts a void pointer to int pointer
     std::cout << "Converts a void pointer to int pointer: " << *i_ptr << std::endl;
+
+
+    // You should use reinterpret_cast only when you know exactly what
+    // you are doing and you understand the implications. Misuse of
+    // reinterpret_cast can lead to critical errors that are hard to diagnose.
+
+    int *ptr = new int(10);
+    auto addr = reinterpret_cast<uintptr_t>(ptr);
+    std::cout << "reinterpret_cast: " << addr << std::endl;
+    delete ptr;
+
 }
