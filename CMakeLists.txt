@@ -23,4 +23,5 @@ add_executable(examples
         array/simpleArray.cpp
         class/Operator.cpp
         class/functionOverrideAndOverload.cpp
-        smartPointers/functionSmartPtr.cpp)
+        smartPointers/functionSmartPtr.cpp
+        class/dynamicCast.cpp)

@@ -38,7 +38,7 @@ public:
 
 
     friend std::ostream& operator<<(std::ostream &os, const Feet &my_obj) {
-        os << "Feet = " << my_obj.feet_ << "  Height = " << my_obj.height_ << std::endl;
+        os << "Feet = " << my_obj.feet_ << "  Derived = " << my_obj.height_ << std::endl;
         return os;
     }
 
