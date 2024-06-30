@@ -1,6 +1,6 @@
 #include <iostream>
 
-class MyStaticClass {
+class MyStaticVariableClass {
 public:
     // Public method to increment and display the counter
     static void incrementCounter() {
@@ -23,12 +23,12 @@ private:
 //Since incrementCounter is a static member function, it can only access
 // static data members or other static member functions of the class.
 
-int MyStaticClass::counter = 0;
+int MyStaticVariableClass::counter = 0;
 
-void staticVariableClass() {
+void testStaticVariableClass() {
 
     // Static data member definition
-    MyStaticClass::incrementCounter();
+    MyStaticVariableClass::incrementCounter();
 
-    MyStaticClass::incrementCounter();
+    MyStaticVariableClass::incrementCounter();
 }

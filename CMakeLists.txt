@@ -18,11 +18,13 @@ add_executable(examples
         string/stringClass.cpp
         class/OperatorClass.cpp
         threads/threadSemaphore.cpp
-        class/StaticClass.cpp
+        class/staticVariableCast.cpp
         lock/InterruptHandler.cpp
         array/simpleArray.cpp
         class/Operator.cpp
         class/functionOverrideAndOverload.cpp
         smartPointers/functionSmartPtr.cpp
         class/dynamicCast.cpp
-        class/staticCast.cpp)
+        class/staticCast.cpp
+        class/staticVariableCast.cpp
+        class/staticVariableCast.cpp)
