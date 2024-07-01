@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    testStaticCast();
+    testSingletonClass();
     return 0;
 }
