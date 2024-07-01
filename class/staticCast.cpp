@@ -80,7 +80,11 @@ void printStaticCastData(BaseStaticCast& feet) {
     printStaticCastDataPointer(&feet);
 }
 
-
+void printNumber(int* ptrNum)
+{
+    *ptrNum += 5; // modify the value
+    std::cout << "Number: " << *ptrNum << std::endl;
+}
 
 void testStaticCast() {
 
@@ -104,8 +108,12 @@ void testStaticCast() {
     // reinterpret_cast can lead to critical errors that are hard to diagnose.
 
     int *ptr = new int(10);
-    auto addr = reinterpret_cast<uintptr_t>(ptr);
+    auto addr = reinterpret_cast<uint64_t>(ptr);
     std::cout << "reinterpret_cast: " << addr << std::endl;
     delete ptr;
 
+    const int num = 10;
+    // const_cast most commonly used when you need to call a function that takes a
+    // non-const argument, but you only have a const object.
+    printNumber(const_cast<int*>(&num));
 }
