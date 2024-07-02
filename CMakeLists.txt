@@ -27,4 +27,5 @@ add_executable(examples
         class/dynamicCast.cpp
         class/staticCast.cpp
         class/staticVariableCast.cpp
-        class/singletonClass.cpp)
+        class/singletonClass.cpp
+        class/copyClass.cpp)
