@@ -20,12 +20,11 @@ add_executable(examples
         array/simpleArray.cpp
         class/operator/operatorStruct.cpp
         class/operator/operatorClass.cpp
+        class/cast/dynamicCast.cpp
+        class/cast/staticCast.cpp
+        class/cast/staticVariableCast.cpp
         class/functionOverrideAndOverload.cpp
         smartPointers/functionSmartPtr.cpp
         class/implicitClass.cpp
-        class/staticVariableCast.cpp
-        class/dynamicCast.cpp
-        class/staticCast.cpp
-        class/staticVariableCast.cpp
         class/singletonClass.cpp
         class/copyClass.cpp)

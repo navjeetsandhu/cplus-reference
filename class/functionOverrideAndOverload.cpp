@@ -11,7 +11,7 @@ public:
 class Derived: public Base
 {
 public:
-    void add(int a, int b) const { std::cout << " Derived " << a+b << std::endl; };
+    void add(int a, int b) const override { std::cout << " Derived " << a+b << std::endl; };
     void subtract(float a, float b) const { std::cout << " Derived " << a-b << std::endl; };
 };
 
