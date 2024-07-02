@@ -21,7 +21,7 @@ void testFunctionOverLoadAndOverRide() {
     Derived derived;
 
     ptr = &derived;
-    ptr->add(2,1);            // derived 3    function Overriding
-    ptr->subtract(2,1);      // base 1        function  Overloading
-    ptr->subtract(2.4,1.2);  // base 1        function Overloading
+    ptr->add(2,1);            // derived 3    function Overriding,  Runtime
+    ptr->subtract(2,1);      // base 1        function  Overloading, compile time
+    ptr->subtract(2.4,1.2);  // base 1        function Overloading, compile time
 }
