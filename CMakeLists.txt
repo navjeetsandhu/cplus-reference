@@ -22,9 +22,9 @@ add_executable(examples
         class/operator/operatorClass.cpp
         class/cast/dynamicCast.cpp
         class/cast/staticCast.cpp
-        class/cast/staticVariableCast.cpp
+        class/staticVariable.cpp
         class/override/overrideOverload.cpp
         smartPointers/functionSmartPtr.cpp
         class/implicitClass.cpp
         class/singletonClass.cpp
-        class/copyClass.cpp)
+        class/copy/copyClass.cpp)
