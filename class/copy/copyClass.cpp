@@ -26,6 +26,18 @@ public:
     }
 
     using BaseMe::getCount;
+
+
+    friend std::ostream& operator<<(std::ostream &os, const DeriveMe &my_obj) {
+        os << "Pointer = " << my_obj.p << "  value = " << *my_obj.p << std::endl;
+        return os;
+    }
 };
 
 
+// Usage:
+void testCopyClass()
+{
+    DeriveMe instance1(6);
+    std::cout << instance1;
+}

@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    testFeetClass();
+    testCopyClass();
     return 0;
 }
