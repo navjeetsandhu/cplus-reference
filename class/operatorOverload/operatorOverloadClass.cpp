@@ -37,6 +37,11 @@ public:
     }
 
 
+    bool operator==(const Feet& f) const {
+        return ((feet_ == f.feet_) && (f.height_ == height_));
+    }
+
+
     friend std::ostream& operator<<(std::ostream &os, const Feet &my_obj) {
         os << "(feet = " << my_obj.feet_ << "  height = " << my_obj.height_ << ")" << std::endl;
         return os;
@@ -67,4 +72,9 @@ void testOperatorOverloadClass() {
 
     f = fff - ff;
     std::cout << f << std::endl;
+
+    std::string result (ff==fff?"Equal":"Not Equal");
+
+    std::cout << result << std::endl;
+
 }
