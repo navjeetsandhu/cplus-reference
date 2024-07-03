@@ -13,6 +13,19 @@ public:
         std::cout << "Copy constructor called!: " << *this;
     }
 
+    Widget& operator = (const Widget& w) {
+        std::cout << "Assignment operator called!: ";
+        if(this == &w) {
+            std::cout << " this == &w: " << *this;
+            return *this;
+        }
+        std::cout << " this != &w start: " << *this;
+        this->dataPtr = std::make_unique<int>(*w.dataPtr);
+        std::cout << " this != &w after: " << *this;
+        return *this;
+    }
+
+
     friend std::ostream& operator << (std::ostream& os, const Widget& w) {
         os << "( ptr: " << w.dataPtr << ", value: " << *w.dataPtr << " )" <<std::endl;
         return os;
@@ -40,4 +53,18 @@ void testDeepCopy() {
     const Widget& w3 = w1;
     std::cout << "w3: " << w3;  //w3: ( ptr: 0x6000019a0030, value: 10 )
 
+    Widget w4(15);
+    std::cout << "w4: " << w4;
+
+
+    std::cout << std::endl << std::endl << "Assigment "  << std::endl;
+    std::cout << "w4 before assignment: " << w4;
+    w4 = w1;
+    std::cout << "w4 after assignment: " << w4;
+
+    std::cout << std::endl << "w1=w3" << std::endl;
+    w1 = w3;
+
+
+    std::cout << std::endl << std::endl<< "Ending" << std::endl;
 }
