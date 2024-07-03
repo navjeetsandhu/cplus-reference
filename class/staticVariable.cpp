@@ -9,25 +9,25 @@ public:
     }
 
 private:
-    // Static data member declaration
+    // Static dataPtr member declaration
     static int counter;
 };
 
-//n this example, counter is a static data member of the class MyClass.
+//n this example, counter is a static dataPtr member of the class MyClass.
 // This means that counter is shared by all objects of the class, and we
 // are required to define it outside the class. The incrementCounter method
-// increments counter and displays its value. "Counter: " is also a static data member,
+// increments counter and displays its value. "Counter: " is also a static dataPtr member,
 // specifically, it's a static string constant. It doesn't change and we're not
 // required to initialize it outside the class in this case.
 
 //Since incrementCounter is a static member function, it can only access
-// static data members or other static member functions of the class.
+// static dataPtr members or other static member functions of the class.
 
 int MyStaticVariableClass::counter = 0;
 
 void testStaticVariableClass() {
 
-    // Static data member definition
+    // Static dataPtr member definition
     MyStaticVariableClass::incrementCounter();
 
     MyStaticVariableClass::incrementCounter();

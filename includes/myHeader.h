@@ -25,6 +25,6 @@ void test_smart_ptr_function();
 void testDynamicCastClass();
 void testStaticCast();
 void testSingletonClass();
-void testCopyClass();
+void testDeepCopy();
 
 #endif

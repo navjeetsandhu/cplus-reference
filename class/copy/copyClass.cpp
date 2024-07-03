@@ -1,43 +1,37 @@
 #include <iostream>
 
-
-class BaseMe {
-private:
-    int count_;
-
+class Widget {
+    int* dataPtr;
 public:
-    explicit BaseMe(int count): count_(count) {};
+    explicit Widget(int data) {
+        this->dataPtr = new int(data);
+        std::cout << "Constructor called! Value: " << *this->dataPtr << std::endl;
+    }
+    // Implement deep copy in copy constructor
+    Widget(const Widget& w) {
+        this->dataPtr = new int(*w.dataPtr);
+        std::cout << "Copy constructor called! Value: " << *this->dataPtr << std::endl;
+    }
 
-    virtual ~BaseMe() = default;
+    ~Widget() {\
+        std::cout << dataPtr << " Destructor called!" << std::endl;
+        delete dataPtr;
 
-    int getCount() const {
-        return count_;
+    }
+
+    void print() {
+        std::cout << dataPtr << " Data value: " << *dataPtr << std::endl;
     }
 };
 
+void testDeepCopy() {
+    // Constructor called
+    Widget w1(10);
 
-class DeriveMe: public BaseMe {
+    // Deep Copy
+    Widget w2 = w1;
 
-private:
-    std::unique_ptr<int> p;
+    w1.print(); // prints 10
+    w2.print(); // prints 10
 
-public:
-    explicit DeriveMe(int count) : BaseMe(count), p(new int(count)) {
-    }
-
-    using BaseMe::getCount;
-
-
-    friend std::ostream& operator<<(std::ostream &os, const DeriveMe &my_obj) {
-        os << "Pointer = " << my_obj.p << "  value = " << *my_obj.p << std::endl;
-        return os;
-    }
-};
-
-
-// Usage:
-void testCopyClass()
-{
-    DeriveMe instance1(6);
-    std::cout << instance1;
 }
