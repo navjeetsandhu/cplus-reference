@@ -18,8 +18,8 @@ add_executable(examples
         threads/threadSemaphore.cpp
         lock/InterruptHandler.cpp
         array/simpleArray.cpp
-        class/operator/operatorStruct.cpp
-        class/operator/operatorClass.cpp
+        class/operatorOverload/operatorOverloadStruct.cpp
+        class/operatorOverload/operatorOverloadClass.cpp
         class/cast/dynamicCast.cpp
         class/cast/staticCast.cpp
         class/staticVariable.cpp

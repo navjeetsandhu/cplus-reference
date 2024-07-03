@@ -38,14 +38,14 @@ public:
 
 
     friend std::ostream& operator<<(std::ostream &os, const Feet &my_obj) {
-        os << "Feet = " << my_obj.feet_ << "  Derived = " << my_obj.height_ << std::endl;
+        os << "(feet = " << my_obj.feet_ << "  height = " << my_obj.height_ << ")" << std::endl;
         return os;
     }
 
 
 };
 
-void testOperatorClass() {
+void testOperatorOverloadClass() {
 
     Feet ff(11, 12);
     Feet fff(111, 121);

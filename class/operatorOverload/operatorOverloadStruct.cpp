@@ -23,7 +23,7 @@ std::ostream& operator<<(std::ostream& os, const Vector& vec) {
 }
 
 
-void testOperatorOverload() {
+void testOperatorOverloadStruct() {
     Vector a{2,3};
     Vector b(3,4);
     Vector c(2,3);

@@ -14,13 +14,13 @@ int test_unique_ptr();
 
 void testStringClass();
 void testFeetClass();
-void testOperatorClass();
+void testOperatorOverloadClass();
 void run_worker_thread_with_semaphore();
 void testStaticVariableClass();
 void interruptSemaphoreExample();
 void simpleArrayTest();
 void testFunctionOverLoadAndOverRide();
-void testOperatorOverload();
+void testOperatorOverloadStruct();
 void test_smart_ptr_function();
 void testDynamicCastClass();
 void testStaticCast();
