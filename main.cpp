@@ -10,6 +10,7 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << "\n";
     }
 
-    testDeepCopy();
+    int result = testCreateProcess();
+    std::cout << "Result " << result << "\n";
     return 0;
 }

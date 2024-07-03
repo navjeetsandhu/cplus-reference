@@ -26,5 +26,6 @@ void testDynamicCastClass();
 void testStaticCast();
 void testSingletonClass();
 void testDeepCopy();
+int testCreateProcess();
 
 #endif

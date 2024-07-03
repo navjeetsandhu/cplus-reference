@@ -13,9 +13,7 @@ add_executable(examples
         smartPointers/weakPointer.cpp
         smartPointers/sharedPointer.cpp
         smartPointers/uniquePointer.cpp
-        threads/twoThread.cpp
         string/stringClass.cpp
-        threads/threadSemaphore.cpp
         lock/InterruptHandler.cpp
         array/simpleArray.cpp
         class/operatorOverload/operatorOverloadStruct.cpp
@@ -27,4 +25,7 @@ add_executable(examples
         smartPointers/functionSmartPtr.cpp
         class/implicitClass.cpp
         class/singletonClass.cpp
-        class/copy/copyClass.cpp)
+        class/copy/copyClass.cpp
+        threads/twoThread.cpp
+        threads/threadSemaphore.cpp
+        threads/createProcess.cpp)
